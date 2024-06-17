@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEOMETRIA</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            font-family: "Arial";
+        }
+        header{
+            height: 300px;
+            background: #aed15a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        #left *{
+            margin: 0;
+            padding: 0;
+        }
+        #left h1{
+            color: darkolivegreen;
+        }
+        #left h6{
+            color: white;
+        }
+        #right form{
+            background: #97b64c;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        #right form span{
+            color: white;
+            margin: 5px -5px;
+        }
+        #right form input{
+            height: 30px;
+            width: 200px;
+            margin: 3px 0;
+        }
+        #right form button{
+            width: 80px;
+            padding: 10px 5px;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            
+            background: #f1f1f1;
+            border-radius: 10px;
+            width: 25%;
+            padding: 20px 10px;
+            margin: 5px;
+        }
+        section img{
+            width: 80%;
+            align-self: center;
+        }
+        .first span, .first input{
+            margin: 5px;
+        }
+        .first button{
+            margin: 5px 0 20px;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+        footer{
+            color: white;
+            height: 210px;
+            background: #1c211d;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            font-size: 3rem;
+        }
+        h6{
+            font-size: 1rem;
+        }
+        h4{
+            font-size: 1.5rem;
+        }
+        fieldset{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .bold{
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="left">
+            <h1>GEOMETRIA</h1>
+            <h6>portal matematyczny</h6>
+        </div>
+        <div id="right">
+            <form> 
+                <span>logowanie</span>
+                <input type="text"/>
+                <input type="text"/>
+                <button type="button">zaloguj</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section id="secL">
+        <img src="prostakat.png" alt="prostokąt"/>
+        <form>
+            <fieldset class="first">
+            <span>podaj a:</span><input type="number" id="pa"/><br/>
+            <span>podaj b:</span><input type="number" id="pb"/><br/>
+            <button type="button" onclick="obliczP()">Oblicz pole i obwód</button><br/>
+            </fieldset>
+            <fieldset>
+            <span class="bold">Wynik obliczeń:</span><br/>
+            <span>pole: </span><input type="text" id="pp" disabled="disabled" value="0"/><br/>
+            <span>obwód: </span><input type="text" id="po" disabled="disabled" value="0"/>
+            </fieldset>
+        </form>
+        </section>
+        <section id="secM">
+        <img src="trojkat.png" alt="trójkąt"/>
+        <form>
+            <fieldset class="first">
+            <span>podaj a:</span><input type="number" id="ta"/><br/>
+            <span>podaj h:</span><input type="number" id="th"/><br/>
+            <button type="button" onclick="obliczT()">Oblicz pole</button><br/>
+            </fieldset>
+            <fieldset>
+            <span class="bold">Wynik obliczeń:</span><br/>
+            <span>pole: </span><input type="text" id="tp" disabled="disabled" value="0"/><br/>
+            </fieldset>
+        </form>
+        </section>
+        <section id="secR">
+        <img src="kolo.gif" alt="koło"/>
+        <form>
+            <fieldset class="first">
+            <span>podaj r:</span><input type="number" id="kr"/><br/>
+            <button type="button" onclick="obliczK()">Oblicz pole i obwód</button><br/>
+            </fieldset>
+            <fieldset>
+            <span class="bold">Wynik obliczeń:</span><br/>
+            <span>pole: </span><input type="text" id="kp" disabled="disabled" value="0"/><br/>
+            <span>obwód: </span><input type="text" id="ko" disabled="disabled" value="0"/>
+            </fieldset>
+        </form>
+        </section>
+    </main>
+    <footer>
+        <div id="fotL">
+            <h4>Stronę wykonał: Mateusz Płachta</h4>
+        </div>
+        <div id="fotR">
+            <img src="matematyka.jpg" alt="matematyka">
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+    function obliczP(){
+        let a=parseFloat(document.getElementById("pa").value);
+        let b=parseFloat(document.getElementById("pb").value);
+        let pole=document.getElementById("pp");
+        let obwod=document.getElementById("po");
+        
+        pole.value=a*b;
+        obwod.value=2*a+2*b;
+    }
+    function obliczT(){
+        let a=parseFloat(document.getElementById("ta").value);
+        let h=parseFloat(document.getElementById("th").value);
+        let pole=document.getElementById("tp");
+        
+        
+        pole.value=((a*h)/2).toFixed(2);
+       
+    }
+    function obliczK(){
+        let r=parseFloat(document.getElementById("kr").value);
+        let pole=document.getElementById("kp");
+        let obwod=document.getElementById("ko");
+        
+        pole.value=r*r+"π";
+        obwod.value=2*r+'π';
+    }
+</script>
